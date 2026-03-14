@@ -56,24 +56,36 @@ The main playground which:
 
 ## 🚀 Setup & Installation
 
-Setting up your Python env using uv...
-See instructions for setting up uv here:
+This project uses [uv](https://github.com/astral-sh/uv) for fast Python package management.
 
-https://docs.astral.sh/uv/getting-started/installation/
+### 1. Install `uv`
+If you don't have it installed, see the [installation docs](https://docs.astral.sh/uv/getting-started/installation/).
 
-Or if you're on Linux / macOS, simply run
-
+**Linux / macOS:**
+```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
-And add ~/.cargo/bin to your $PATH.
+```
+*Make sure to add `~/.cargo/bin` to your `$PATH` if it's not already there.*
 
-Then cd in the root of this repo and run
+### 2. Install Dependencies
+Navigate to the root of this repo and run:
 
+```bash
 uv sync
-This will create an env in .venv, which you can activate with
+```
+This will create a virtual environment in `.venv`.
 
+### 3. Activate Environment
+To activate the environment manually:
+
+```bash
 source .venv/bin/activate
-Personally, I have the following in my ~/.zshrc to automatically activate my Python envs whenver I cd into a directory that has a .venv subdirectory
+```
 
+### 💡 Tip: Auto-activation (zsh)
+Add the following to your `~/.zshrc` to automatically activate Python envs whenever you `cd` into a directory with a `.venv` folder:
+
+```bash
 autoload -U add-zsh-hook
 activate_if_env() {
     if [ -f .venv/bin/activate ]; then
@@ -82,3 +94,4 @@ activate_if_env() {
 }
 add-zsh-hook chpwd activate_if_env
 activate_if_env
+```
